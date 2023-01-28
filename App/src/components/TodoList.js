@@ -24,12 +24,11 @@ export default function TodoList({
     $completedUl.className = 'completed-todo-list';
 
     $completedUl.addEventListener('change', (e) => {
-      console.log('change', e.target, e.target.checked);
-      this.handleUpdate(2);
+      this.handleUpdate(e.target.value);
     });
 
     $ul.addEventListener('change', (e) => {
-      console.log('change', e.target, e.target.checked);
+      this.handleUpdate(e.target.value);
     });
 
     this.data.map((item) =>

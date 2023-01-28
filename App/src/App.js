@@ -34,9 +34,15 @@ export default function App() {
     $target: $app,
     data: this.data,
     handleUpdate: (id) => {
+      const idx = id - 1;
       const newData = [...this.data];
+      newData[idx] = {
+        ...newData[idx],
+        isCompleted: !newData[idx].isCompleted,
+      };
+      this.data = newData;
 
-      console.log('asd', newData);
+      todoList.setState(this.data);
     },
     handleDelete: (id) => {
       const newData = [...this.data].filter(({ id: _id }) => _id !== id);
